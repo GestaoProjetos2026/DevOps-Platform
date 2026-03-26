@@ -92,7 +92,7 @@ Reduzir a necessidade de ações manuais no ciclo de entrega.
 Automatizar validações e etapas principais de entrega a partir do repositório.
 
 ### 7.5 Marketplace de Módulos
-Disponibilizar um ponto central para visualização e integração dos módulos do ERP.
+Disponibilizar um ponto central para visualização e integração dos módulos.
 
 ---
 
@@ -114,7 +114,7 @@ Disponibilizar um ponto central para visualização e integração dos módulos 
 - **Confiabilidade:** a automação deve reduzir falhas humanas recorrentes.
 - **Manutenibilidade:** a documentação deve permitir continuidade por novos integrantes.
 - **Portabilidade:** o ambiente deve ser reproduzível em máquinas compatíveis.
-- **Escalabilidade acadêmica:** a solução deve suportar crescimento moderado de módulos.
+- **Escalabilidade:** a solução deve suportar crescimento moderado de módulos.
 
 ---
 
@@ -155,7 +155,7 @@ O Produto Mínimo Viável deve incluir:
 - baixa adesão dos squads ao padrão definido;
 - falta de alinhamento entre módulos;
 - documentação insuficiente;
-- excesso de escopo para o tempo acadêmico disponível.
+- excesso de escopo para o tempo disponível.
 
 ---
 
