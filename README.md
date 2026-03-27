@@ -2,6 +2,7 @@
 
 ## 📌 Sobre o Projeto
 
+
 Este repositório faz parte de um projeto acadêmico, onde a turma é organizada como uma empresa de tecnologia dividida em diferentes **Squads** responsáveis por partes específicas do sistema.
 
 O **Squad 5 – DevOps & Platform Engineering** é responsável por toda a **infraestrutura da plataforma**, garantindo que os serviços desenvolvidos pelos outros squads possam ser executados, integrados e monitorados dentro de um ambiente moderno baseado em práticas de **DevOps**.
