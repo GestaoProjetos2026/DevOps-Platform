@@ -2,6 +2,7 @@
 
 ---
 
+
 ## 1. Visão Geral
 
 O Squad 5 – DevOps & Platform Engineering é responsável por fornecer a base operacional da plataforma do projeto acadêmico, garantindo que os módulos desenvolvidos pelos demais squads possam ser executados, integrados e evoluídos com mais padronização, previsibilidade e autonomia.
