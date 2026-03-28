@@ -1,5 +1,5 @@
 # PRD — DevOps & Platform Engineering
- 
+
 ---
 
 ## 1. Visão Geral
