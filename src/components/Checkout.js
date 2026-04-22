@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Checkout.css';
 
-const Checkout = ({ cartItems, onRemoveItem, onBackToHome }) => {
+const Checkout = ({ cartItems, onRemoveItem }) => {
+  const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -22,7 +25,7 @@ const Checkout = ({ cartItems, onRemoveItem, onBackToHome }) => {
         <div className="success-icon">✓</div>
         <h2>Pagamento Confirmado!</h2>
         <p>Obrigado por escolher a GP2026. Seus produtos estarão disponíveis em instantes no seu dashboard.</p>
-        <button className="back-btn" onClick={onBackToHome}>Voltar para o Início</button>
+        <button className="back-btn" onClick={() => navigate('/')}>Voltar para o Início</button>
       </div>
     );
   }
@@ -30,7 +33,7 @@ const Checkout = ({ cartItems, onRemoveItem, onBackToHome }) => {
   return (
     <div className="checkout-view">
       <div className="checkout-header">
-        <button className="back-link" onClick={onBackToHome}>
+        <button className="back-link" onClick={() => navigate('/')}>
           ← Voltar para soluções
         </button>
         <h1>Finalizar Compra</h1>
@@ -42,7 +45,7 @@ const Checkout = ({ cartItems, onRemoveItem, onBackToHome }) => {
           {cartItems.length === 0 ? (
             <div className="empty-cart">
               <p>Seu carrinho está vazio.</p>
-              <button className="browse-btn" onClick={onBackToHome}>Ver Soluções</button>
+              <button className="browse-btn" onClick={() => navigate('/')}>Ver Soluções</button>
             </div>
           ) : (
             <>
@@ -106,8 +109,8 @@ const Checkout = ({ cartItems, onRemoveItem, onBackToHome }) => {
                 <input type="text" placeholder="000" required />
               </div>
             </div>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className={`checkout-submit ${isProcessing ? 'processing' : ''}`}
               disabled={isProcessing || cartItems.length === 0}
             >

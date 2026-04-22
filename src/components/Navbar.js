@@ -1,24 +1,27 @@
 import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import './Navbar.css';
 
-const Navbar = ({ cartCount, onCartClick, onLogoClick, onProfileClick, isLoggedIn, userName }) => {
+const Navbar = ({ cartCount, onLogout, isLoggedIn, userName }) => {
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    if (isLoggedIn) {
+      onLogout();
+    } else {
+      navigate('/login');
+    }
+  };
+
   return (
     <nav className="navbar">
-      <div className="nav-left" onClick={onLogoClick} style={{ cursor: 'pointer' }}>
+      <Link to="/" className="nav-left" style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
         <img src={logo} alt="GP2026 Logo" className="logo-img" />
         <span className="logo-text">GP2026</span>
-      </div>
-      <div className="nav-center">
-        <div className="search-bar">
-          <svg className="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" placeholder="Buscar soluções..." />
-        </div>
-      </div>
+      </Link>
       <div className="nav-right">
-        <button className="nav-icon-btn cart-btn" onClick={onCartClick}>
+        <button className="nav-icon-btn cart-btn" onClick={() => navigate('/checkout')}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="9" cy="21" r="1"></circle>
             <circle cx="20" cy="21" r="1"></circle>
@@ -26,9 +29,9 @@ const Navbar = ({ cartCount, onCartClick, onLogoClick, onProfileClick, isLoggedI
           </svg>
           {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </button>
-        <div 
-          className={`profile-wrapper ${isLoggedIn ? 'logged-in' : ''}`} 
-          onClick={onProfileClick}
+        <div
+          className={`profile-wrapper ${isLoggedIn ? 'logged-in' : ''}`}
+          onClick={handleProfileClick}
           title={isLoggedIn ? `Olá, ${userName} (Clique para sair)` : 'Fazer Login'}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

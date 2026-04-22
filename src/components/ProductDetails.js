@@ -1,10 +1,29 @@
 import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { products } from '../data/products';
+import './ProductDetails.css';
 
-const ProductDetails = ({ product, onAddToCart, onBack }) => {
+const ProductDetails = ({ onAddToCart }) => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const product = products.find(p => p.id === id);
+
+  if (!product) {
+    return (
+      <div className="product-details-view" style={{ textAlign: 'center', padding: '100px 0' }}>
+        <h2>Produto não encontrado</h2>
+        <button className="back-button" onClick={() => navigate(-1)} style={{ margin: '20px auto' }}>
+          Voltar
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="product-details-view">
       <div className="details-nav">
-        <button className="back-button" onClick={onBack}>
+        <button className="back-button" onClick={() => navigate(-1)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
@@ -20,7 +39,7 @@ const ProductDetails = ({ product, onAddToCart, onBack }) => {
             Explore tudo sobre o <span className="gradient-text">{product.title}</span>
           </h1>
           <p className="details-description">{product.fullDescription}</p>
-          
+
           <div className="details-tags">
             {product.tags.map((tag, i) => (
               <span key={i} className="detail-tag">#{tag}</span>

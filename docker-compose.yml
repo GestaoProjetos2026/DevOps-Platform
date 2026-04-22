@@ -1,0 +1,26 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: devops-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: devops-backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - backend_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  backend_data:
+    name: devops_backend_data

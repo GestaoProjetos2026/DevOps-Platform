@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
-const Login = ({ onLogin, onCancel }) => {
+const Login = ({ onLogin }) => {
+  const navigate = useNavigate();
   const [isRegister, setIsRegister] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
@@ -8,14 +11,15 @@ const Login = ({ onLogin, onCancel }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      onLogin({ 
-        name: formData.name || formData.email.split('@')[0], 
-        email: formData.email 
+      onLogin({
+        name: formData.name || formData.email.split('@')[0],
+        email: formData.email
       });
+      navigate('/');
     }, 1500);
   };
 
@@ -31,30 +35,30 @@ const Login = ({ onLogin, onCancel }) => {
           {isRegister && (
             <div className="form-group">
               <label>Nome Completo</label>
-              <input 
-                type="text" 
-                placeholder="Seu nome" 
-                required 
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+              <input
+                type="text"
+                placeholder="Seu nome"
+                required
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
             </div>
           )}
           <div className="form-group">
             <label>E-mail</label>
-            <input 
-              type="email" 
-              placeholder="seu@email.com" 
-              required 
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
+            <input
+              type="email"
+              placeholder="seu@email.com"
+              required
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
           </div>
           <div className="form-group">
             <label>Senha</label>
-            <input 
-              type="password" 
-              placeholder="••••••••" 
-              required 
-              onChange={(e) => setFormData({...formData, password: e.target.value})}
+            <input
+              type="password"
+              placeholder="••••••••"
+              required
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
             />
           </div>
 
@@ -69,8 +73,8 @@ const Login = ({ onLogin, onCancel }) => {
             </div>
           )}
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className={`login-submit ${isLoading ? 'loading' : ''}`}
             disabled={isLoading}
           >
@@ -96,7 +100,7 @@ const Login = ({ onLogin, onCancel }) => {
               {isRegister ? 'Fazer Login' : 'Cadastre-se grátis'}
             </button>
           </p>
-          <button className="back-home-btn" onClick={onCancel}>Voltar para o site</button>
+          <button className="back-home-btn" onClick={() => navigate('/')}>Voltar para o site</button>
         </div>
       </div>
     </div>
