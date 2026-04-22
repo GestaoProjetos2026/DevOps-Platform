@@ -109,8 +109,8 @@ const Checkout = ({ cartItems, onRemoveItem }) => {
                 <input type="text" placeholder="000" required />
               </div>
             </div>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className={`checkout-submit ${isProcessing ? 'processing' : ''}`}
               disabled={isProcessing || cartItems.length === 0}
             >

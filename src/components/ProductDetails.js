@@ -6,7 +6,7 @@ import './ProductDetails.css';
 const ProductDetails = ({ onAddToCart }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  
+
   const product = products.find(p => p.id === id);
 
   if (!product) {
@@ -39,7 +39,7 @@ const ProductDetails = ({ onAddToCart }) => {
             Explore tudo sobre o <span className="gradient-text">{product.title}</span>
           </h1>
           <p className="details-description">{product.fullDescription}</p>
-          
+
           <div className="details-tags">
             {product.tags.map((tag, i) => (
               <span key={i} className="detail-tag">#{tag}</span>

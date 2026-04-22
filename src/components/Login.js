@@ -11,13 +11,13 @@ const Login = ({ onLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      onLogin({ 
-        name: formData.name || formData.email.split('@')[0], 
-        email: formData.email 
+      onLogin({
+        name: formData.name || formData.email.split('@')[0],
+        email: formData.email
       });
       navigate('/');
     }, 1500);
@@ -35,30 +35,30 @@ const Login = ({ onLogin }) => {
           {isRegister && (
             <div className="form-group">
               <label>Nome Completo</label>
-              <input 
-                type="text" 
-                placeholder="Seu nome" 
-                required 
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+              <input
+                type="text"
+                placeholder="Seu nome"
+                required
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
             </div>
           )}
           <div className="form-group">
             <label>E-mail</label>
-            <input 
-              type="email" 
-              placeholder="seu@email.com" 
-              required 
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
+            <input
+              type="email"
+              placeholder="seu@email.com"
+              required
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
           </div>
           <div className="form-group">
             <label>Senha</label>
-            <input 
-              type="password" 
-              placeholder="••••••••" 
-              required 
-              onChange={(e) => setFormData({...formData, password: e.target.value})}
+            <input
+              type="password"
+              placeholder="••••••••"
+              required
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
             />
           </div>
 
@@ -73,8 +73,8 @@ const Login = ({ onLogin }) => {
             </div>
           )}
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className={`login-submit ${isLoading ? 'loading' : ''}`}
             disabled={isLoading}
           >

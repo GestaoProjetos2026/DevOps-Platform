@@ -46,13 +46,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar 
-          cartCount={cart.length} 
+        <Navbar
+          cartCount={cart.length}
           onLogout={handleLogout}
           isLoggedIn={!!user}
           userName={user?.name}
         />
-        
+
         <div className="main-container">
           <Routes>
             <Route path="/" element={
@@ -62,11 +62,11 @@ function App() {
                 <ProductGrid onAddToCart={addToCart} />
               </>
             } />
-            
+
             <Route path="/checkout" element={
-              <Checkout 
-                cartItems={cart} 
-                onRemoveItem={removeFromCart} 
+              <Checkout
+                cartItems={cart}
+                onRemoveItem={removeFromCart}
               />
             } />
 
