@@ -1,15 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { products } from '../data/products';
 import './ProductDetails.css';
+import placeholderImg from '../assets/product1.png';
 
 const ProductDetails = ({ onAddToCart }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  const product = products.find(p => p.id === id);
+  useEffect(() => {
+    // 1. Faz a requisição buscando apenas o módulo clicado
+    fetch(`http://localhost:3001/api/modules/${id}`)
+      .then(res => {
+        if (!res.ok) throw new Error('Módulo não encontrado');
+        return res.json();
+      })
+      .then(item => {
+        // 2. Adapta os dados do banco para preencher a tela de detalhes corretamente
+        setProduct({
+          id: item.id.toString(),
+          image: placeholderImg,
+          icon: '📦',
+          title: `[${item.squad}] - ${item.name}`,
+          description: item.description,
+          fullDescription: item.description || 'Módulo sem descrição detalhada.',
+          tags: [item.status, item.squad],
+          price: '99'
+        });
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setError(true);
+        setLoading(false);
+      });
+  }, [id]);
 
-  if (!product) {
+  if (loading) {
+    return <div className="product-details-view" style={{ textAlign: 'center', padding: '100px 0' }}><h2>Carregando detalhes do módulo...</h2></div>;
+  }
+
+  if (error || !product) {
     return (
       <div className="product-details-view" style={{ textAlign: 'center', padding: '100px 0' }}>
         <h2>Produto não encontrado</h2>
@@ -50,22 +84,22 @@ const ProductDetails = ({ onAddToCart }) => {
             <div className="feature-item">
               <span className="feature-icon">✨</span>
               <div className="feature-text">
-                <h5>Inteligência Artificial</h5>
-                <p>Processamento em tempo real com Redes Neurais.</p>
+                <h5>Integração Oficial</h5>
+                <p>Módulo desenvolvido e suportado ativamente.</p>
               </div>
             </div>
             <div className="feature-item">
               <span className="feature-icon">🔒</span>
               <div className="feature-text">
-                <h5>Camada de Segurança</h5>
-                <p>Criptografia ponta a ponta e conformidade total.</p>
+                <h5>Padronização</h5>
+                <p>Compatível com os padrões da Plataforma DevOps.</p>
               </div>
             </div>
             <div className="feature-item">
               <span className="feature-icon">🚀</span>
               <div className="feature-text">
-                <h5>Escalabilidade Ilimitada</h5>
-                <p>Pronto para suportar o crescimento do seu time.</p>
+                <h5>Fácil Deploy</h5>
+                <p>Pronto para implantação no cluster da empresa.</p>
               </div>
             </div>
           </div>
@@ -98,15 +132,15 @@ const ProductDetails = ({ onAddToCart }) => {
           <div className="floating-card info-1">
             <span className="card-icon">⚡</span>
             <div>
-              <h6>Performance</h6>
-              <p>+40% de agilidade</p>
+              <h6>Status</h6>
+              <p>{product.tags[0] === 'active' ? 'Ativo' : product.tags[0]}</p>
             </div>
           </div>
           <div className="floating-card info-2">
-            <span className="card-icon">📈</span>
+            <span className="card-icon">👥</span>
             <div>
-              <h6>Analytics</h6>
-              <p>Relatórios Diários</p>
+              <h6>Squad</h6>
+              <p>{product.tags[1]}</p>
             </div>
           </div>
         </div>
