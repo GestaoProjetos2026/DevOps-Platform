@@ -109,19 +109,43 @@ Deve existir um ponto central de consulta dos módulos da plataforma.
 
 ---
 
-## 10. Marketplace de Módulos
+## 10. Marketplace da Plataforma
 
-O marketplace deve atuar como um ponto central de consulta e integração entre módulos.
+### Visão Geral
+O Marketplace é a estrutura centralizada da Plataforma DevOps responsável por reunir, organizar e disponibilizar os módulos e serviços desenvolvidos pelos diferentes squads. Ele funciona como o catálogo oficial de soluções, permitindo que usuários e equipes descubram e solicitem recursos técnicos de forma padronizada.
 
-### Objetivos do marketplace
-- concentrar a visibilidade das APIs;
+### Problema Resolvido
+Sem o Marketplace, os módulos ficariam dispersos em diferentes repositórios ou ambientes, dificultando a localização, o consumo e a governança dos serviços. O Marketplace resolve a fragmentação técnica ao oferecer uma interface única para consulta, garantindo que todo o esforço de desenvolvimento dos squads seja visível e acessível em um único ponto de entrada.
 
-### Exemplos de módulos
-- Core Engine & Authentication
-- Financeiro & Fiscal
-- CRM & Growth
-- Service Desk
-- Plataforma DevOps
+### Objetivo
+O objetivo central é consolidar a oferta de serviços da plataforma em uma interface acessível, permitindo a listagem dinâmica de módulos, a visualização de metadados técnicos (como squad responsável e status) e a formalização de solicitações de uso através de um fluxo de checkout acadêmico.
+
+### Funcionamento Geral
+O fluxo operacional do Marketplace está implementado da seguinte forma:
+1. **Descoberta**: O usuário acessa o catálogo principal e visualiza os cartões de cada módulo disponível, consumidos dinamicamente da API.
+2. **Detalhamento**: Ao selecionar um item, o sistema exibe informações específicas do módulo, incluindo descrição completa e etiquetas de identificação.
+3. **Seleção**: O usuário adiciona os módulos de interesse a um carrinho de solicitações temporário.
+4. **Checkout**: Através de um formulário de identificação (nome e e-mail corporativo), o usuário finaliza a solicitação.
+5. **Processamento e Registro**: O backend valida os dados, calcula o escopo da solicitação e registra o pedido no banco de dados para fins de histórico e auditoria.
+
+### Estrutura Técnica de Integração
+A solução integra as três camadas fundamentais da plataforma:
+- **Frontend (React)**: Gerencia o estado do catálogo, a navegação entre detalhes e o carrinho de pedidos, interagindo com o backend via requisições assíncronas.
+- **Backend (Node.js/Express)**: Camada de serviços que orquestra o acesso aos dados dos módulos e implementa a lógica de criação de pedidos.
+- **Banco de Dados (SQLite)**: Persiste as tabelas de módulos e pedidos, servindo como a "fonte da verdade" para o estado da plataforma.
+
+### Endpoints de Sustentação
+A estrutura é suportada pelos seguintes endpoints RESTful:
+- `GET /api/modules`: Listagem de todos os módulos cadastrados.
+- `GET /api/modules/:id`: Recuperação de informações detalhadas de um módulo específico.
+- `POST /api/orders`: Registro formal de uma nova solicitação/pedido.
+- `GET /api/orders`: Consulta ao histórico de pedidos realizados.
+
+### Papel na Arquitetura e Benefícios
+Dentro da arquitetura DevOps, o Marketplace atua como a camada de entrega (Delivery Layer). Seus principais benefícios incluem:
+- **Padronização:** Todos os módulos seguem o mesmo modelo de exibição e fluxo de solicitação.
+- **Rastreabilidade:** Cada "pedido" gera um registro no banco de dados, permitindo saber quem solicitou qual módulo e quando.
+- **Integração:** Facilita a comunicação entre squads, eliminando a necessidade de processos manuais para descoberta de APIs e serviços.
 
 ---
 
@@ -158,16 +182,6 @@ O MVP deve incluir:
 ---
 
 ## 14. Dependências
-
-- alinhamento técnico entre squads;
-- adesão às convenções definidas;
-- ambiente Linux compatível;
-- organização mínima dos repositórios e serviços.
-=======
-
----
-
-## 15. Dependências
 
 - alinhamento técnico entre squads;
 - adesão às convenções definidas;
