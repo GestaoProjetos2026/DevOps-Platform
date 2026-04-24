@@ -27,7 +27,25 @@ export class SQLiteDatabase implements IDatabase {
         squad TEXT NOT NULL,
         status TEXT NOT NULL,
         description TEXT
-      )
+      );
+
+      CREATE TABLE IF NOT EXISTS orders (
+        id TEXT PRIMARY KEY,
+        customer_name TEXT NOT NULL,
+        customer_email TEXT NOT NULL,
+        total_amount REAL NOT NULL,
+        status TEXT NOT NULL,
+        created_at TEXT NOT NULL
+      );
+
+      CREATE TABLE IF NOT EXISTS order_items (
+        id TEXT PRIMARY KEY,
+        order_id TEXT NOT NULL,
+        module_id TEXT NOT NULL,
+        module_name TEXT NOT NULL,
+        price REAL NOT NULL,
+        FOREIGN KEY (order_id) REFERENCES orders (id)
+      );
     `);
 
     // Seed some mock data if empty
