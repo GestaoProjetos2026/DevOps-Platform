@@ -71,6 +71,7 @@ function App() {
               <Checkout
                 cartItems={cart}
                 onRemoveItem={removeFromCart}
+                onClearCart={() => setCart([])}
               />
             } />
 
