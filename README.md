@@ -10,7 +10,7 @@ O Squad 5 – DevOps & Platform Engineering é responsável por estruturar a ope
 
 ## 2. Problema Operacional  
 
-No cenário atual, a ausência de uma base operacional comum pode gerar:
+No cenário atual, a ausência de uma base operacional comum pode gerar:  
 
 - dificuldade para subir os serviços de forma consistente;
 - dependência de configuração manual;
