@@ -2,8 +2,8 @@ name: Deploy Docker Image
 
 on:
   push:
-    branches:
-      - teste-pipeline
+    tags:
+      - v*
 
 jobs:
   deploy:
