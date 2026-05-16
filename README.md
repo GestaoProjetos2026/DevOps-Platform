@@ -3,7 +3,7 @@
 --- 
  
 ## 1. Visão Geral
-
+ 
 O Squad 5 – DevOps & Platform Engineering é responsável por estruturar a operação técnica da plataforma, garantindo que os serviços desenvolvidos pelos demais squads possam ser executados, automatizados e mantidos com previsibilidade.
 
 ---     
