@@ -13,7 +13,19 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middlewares
-app.use(cors()); // Permite a comunicação com o frontend
+const allowedOrigins = [
+  'https://app.devops-platform.40.82.176.176.nip.io'
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS policy does not allow access from this origin'));
+    }
+  }
+}));
 app.use(express.json());
 
 // Rotas
