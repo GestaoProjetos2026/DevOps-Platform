@@ -12,13 +12,16 @@ export class PostgresDatabase implements IDatabase {
     const password = process.env.DB_PASSWORD || '';
 
     this.pool = new Pool({ host, port, database, user, password });
-    this.initialize();
+    // Removemos o this.initialize() daqui para não termos uma promise não resolvida no construtor
   }
 
-  private async initialize() {
-    // Criar tabelas base se não existirem (serão criadas no schema do usuário conectado)
+  // Transformamos o initialize no connectDB que o server.ts está à espera
+  async connectDB(): Promise<void> {
     const client = await this.pool.connect();
     try {
+      console.log('⏳ A conectar ao PostgreSQL e a verificar tabelas...');
+      
+      // Criar tabelas base se não existirem
       await client.query(`
         CREATE TABLE IF NOT EXISTS modules (
           id TEXT PRIMARY KEY,
@@ -46,6 +49,11 @@ export class PostgresDatabase implements IDatabase {
           FOREIGN KEY (order_id) REFERENCES orders (id)
         );
       `);
+      
+      console.log('✅ PostgreSQL conectado e tabelas validadas com sucesso!');
+    } catch (error) {
+      console.error('❌ Erro fatal ao conectar/inicializar o PostgreSQL:', error);
+      process.exit(1); // Encerra a aplicação se a base de dados falhar no arranque
     } finally {
       client.release();
     }
@@ -65,3 +73,9 @@ export class PostgresDatabase implements IDatabase {
     return res.rows[0] as T | undefined;
   }
 }
+
+// 1. Exporta uma instância única (Singleton) da sua base de dados para ser usada nos controllers/repositórios
+export const db = new PostgresDatabase();
+
+// 2. Exporta a função connectDB para o server.ts poder chamá-la no arranque
+export const connectDB = () => db.connectDB();
