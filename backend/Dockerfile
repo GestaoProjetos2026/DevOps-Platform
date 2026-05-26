@@ -14,6 +14,8 @@ RUN npm install
 # Copy source code
 COPY . .
 
+RUN npm install --save-dev @types/pg
+
 # Build typescript code
 RUN npm run build
 
