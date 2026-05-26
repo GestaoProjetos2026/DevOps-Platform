@@ -30,7 +30,7 @@ const Checkout = ({ cartItems, onRemoveItem, onClearCart }) => {
     };
 
     try {
-      const response = await fetch('http://localhost:3001/api/orders', {
+      const response = await fetch('http://api.devops-platform.40.82.176.176.nip.io/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -13,7 +13,7 @@ const ProductDetails = ({ onAddToCart }) => {
 
   useEffect(() => {
     // 1. Faz a requisição buscando apenas o módulo clicado
-    fetch(`http://localhost:3001/api/modules/${id}`)
+    fetch(`http://api.devops-platform.40.82.176.176.nip.io/api/modules/${id}`)
       .then(res => {
         if (!res.ok) throw new Error('Módulo não encontrado');
         return res.json();

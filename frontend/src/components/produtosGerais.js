@@ -12,7 +12,7 @@ const ProdutosGerais = ({ onAddToCart, onModulesLoaded }) => {
 
   useEffect(() => {
     // 1. Faz a requisição real para o backend
-    fetch('http://localhost:3001/api/modules')
+    fetch('http://api.devops-platform.40.82.176.176.nip.io/api/modules')
       .then(res => {
         if (!res.ok) {
           throw new Error(`Erro HTTP: status ${res.status}`);
