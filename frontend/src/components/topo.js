@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section className="hero">
       <h1 className="hero-title">
-        TESTE PIPELINE 2 <span className="gradient-text">GP2027</span>
+        <span className="gradient-text">CONEXUS</span>
       </h1>
       <p className="hero-subtitle">
         O futuro do gerenciamento ágil chegou. Equipe seu time com as ferramentas SaaS
