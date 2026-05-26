@@ -1,20 +1,18 @@
 import { IDatabase } from './IDatabase';
 import { SQLiteDatabase } from './SQLiteDatabase';
+import { PostgresDatabase } from './PostgresDatabase';
 
-// Aqui aplicamos a injeção/desacoplamento.
-// Quando fomos migrar para Postgres, basta criar a classe PostgresDatabase 
-// e mudar a instância retornada aqui, baseando-se em variáveis de ambiente.
-
+// Injeção/desacoplamento: seleciona implementação com base em env
 const dbType = process.env.DB_TYPE || 'sqlite';
 
 let dbInstance: IDatabase;
 
 if (dbType === 'sqlite') {
   dbInstance = new SQLiteDatabase();
+} else if (dbType === 'postgres') {
+  dbInstance = new PostgresDatabase();
 } else {
-  // Placeholder para futuro banco geral (ex: PostgreSQL)
-  // dbInstance = new PostgresDatabase();
-  throw new Error(`Database type ${dbType} is not supported yet.`);
+  throw new Error(`Database type ${dbType} is not supported.`);
 }
 
 export const db = dbInstance;

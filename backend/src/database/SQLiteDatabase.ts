@@ -60,17 +60,17 @@ export class SQLiteDatabase implements IDatabase {
     }
   }
 
-  query<T>(sql: string, params: any[] = []): T[] {
+  async query<T>(sql: string, params: any[] = []): Promise<T[]> {
     const stmt = this.db.prepare(sql);
     return stmt.all(...params) as T[];
   }
 
-  execute(sql: string, params: any[] = []): void {
+  async execute(sql: string, params: any[] = []): Promise<void> {
     const stmt = this.db.prepare(sql);
     stmt.run(...params);
   }
 
-  get<T>(sql: string, params: any[] = []): T | undefined {
+  async get<T>(sql: string, params: any[] = []): Promise<T | undefined> {
     const stmt = this.db.prepare(sql);
     return stmt.get(...params) as T | undefined;
   }

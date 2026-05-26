@@ -39,6 +39,6 @@ COPY --from=builder /app/dist ./dist
 # Expose backend port
 EXPOSE 3001
 ENV PORT=3001
-ENV DB_TYPE=sqlite
+ENV DB_TYPE=postgres
 
 CMD ["npm", "start"]
