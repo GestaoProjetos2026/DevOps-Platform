@@ -17,9 +17,14 @@ const ProductCard = ({ image, icon, title, description, tags, price, onAddToCart
         <p className="product-description">{description}</p>
 
         <div className="product-tags">
-          {tags.map((tag, index) => (
-            <span key={index} className="tag-pill">{tag}</span>
-          ))}
+          {tags.map((tag, index) => {
+            let tagClass = "tag-pill";
+            if (tag === "Online") tagClass += " tag-online";
+            if (tag === "Offline") tagClass += " tag-offline";
+            if (tag === "Degradado") tagClass += " tag-degraded";
+            
+            return <span key={index} className={tagClass}>{tag}</span>;
+          })}
         </div>
 
         <div className="card-footer">
