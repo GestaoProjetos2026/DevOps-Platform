@@ -35,7 +35,7 @@ const ProdutosGerais = ({ onAddToCart, onModulesLoaded }) => {
           tags: [item.status, item.squad],
           price: '99'
         }));
-        
+
         setModules(formattedModules);
         if (onModulesLoaded) {
           onModulesLoaded(formattedModules.length);

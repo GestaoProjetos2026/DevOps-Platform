@@ -6,7 +6,7 @@ import placeholderImg from '../assets/product1.png';
 const ProductDetails = ({ onAddToCart }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  
+
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
