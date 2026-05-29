@@ -9,12 +9,12 @@
 }
 
 .login-card {
-  background: var(--card-bg);
+  background: var(--bg-surface);
   width: 100%;
   max-width: 440px;
   padding: 48px;
   border-radius: 32px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-default);
   box-shadow: var(--shadow-lg);
   text-align: center;
 }
@@ -42,15 +42,15 @@
 }
 
 .login-form input {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-color);
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-default);
   color: white;
   width: 100%;
 }
 
 .login-form input:focus {
-  border-color: var(--accent-purple);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--brand-500);
+  background: var(--bg-surface-strong);
   outline: none;
 }
 
@@ -71,7 +71,7 @@
 
 .link-btn {
   background: transparent;
-  color: var(--accent-purple);
+  color: var(--brand-500);
   font-weight: 600;
   font-size: 14px;
   padding: 0;
@@ -82,7 +82,7 @@
 }
 
 .login-submit {
-  background: var(--accent-purple);
+  background: var(--brand-500);
   color: white;
   padding: 16px;
   border-radius: 12px;
@@ -114,7 +114,7 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--border-color);
+  background: var(--border-subtle);
 }
 
 .login-divider span {
@@ -131,7 +131,7 @@
 
 .social-btn {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-default);
   color: white;
   padding: 12px 24px;
   border-radius: 12px;

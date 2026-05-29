@@ -12,10 +12,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #7c3aed, #4ade80);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--brand-500);
 }
 
 .hero-subtitle {

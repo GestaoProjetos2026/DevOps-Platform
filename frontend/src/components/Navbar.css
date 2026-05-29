@@ -4,12 +4,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 40px;
-  background: rgba(6, 7, 10, 0.8);
+  background: rgba(0, 18, 51, 0.85); /* --bg-app with opacity */
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .nav-left {
@@ -39,17 +39,18 @@
 .search-bar {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-surface-2);
   padding: 8px 16px;
-  border-radius: 99px;
-  border: 1px solid var(--border-color);
+  border-radius: 12px; /* mais moderno que 99px em dashboards SaaS */
+  border: 1px solid var(--border-default);
   transition: all 0.3s ease;
+  height: 40px;
 }
 
 .search-bar:focus-within {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
+  background: var(--bg-surface-strong);
+  border-color: var(--brand-500);
+  box-shadow: 0 0 0 3px rgba(4, 102, 200, 0.2);
 }
 
 .search-icon {
@@ -86,7 +87,7 @@
   position: absolute;
   top: -6px;
   right: -6px;
-  background: var(--accent-purple);
+  background: var(--brand-500);
   color: white;
   font-size: 10px;
   font-weight: 800;
@@ -96,14 +97,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--bg-color);
+  border: 2px solid var(--bg-app);
 }
 
 .profile-wrapper {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-default);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,14 +115,14 @@
 }
 
 .profile-wrapper:hover {
-  border-color: var(--accent-purple);
+  border-color: var(--brand-500);
   color: white;
-  background: rgba(124, 58, 237, 0.1);
+  background: rgba(4, 102, 200, 0.1);
 }
 
 .profile-wrapper.logged-in {
-  border-color: #4ade80;
-  color: #4ade80;
+  border-color: var(--success);
+  color: var(--success);
 }
 
 .online-status {
@@ -130,7 +131,7 @@
   right: 2px;
   width: 8px;
   height: 8px;
-  background: #4ade80;
+  background: var(--success);
   border-radius: 50%;
-  border: 1.5px solid var(--bg-color);
+  border: 1.5px solid var(--bg-app);
 }

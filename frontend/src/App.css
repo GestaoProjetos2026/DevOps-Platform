@@ -51,8 +51,8 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: var(--card-bg);
-  color: white;
+  background: var(--bg-surface-2);
+  color: var(--text-primary);
   padding: 16px 24px;
   border-radius: 12px;
   font-weight: 700;
@@ -60,14 +60,14 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 10px 40px rgba(124, 58, 237, 0.2);
-  border: 1px solid var(--accent-purple);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--success-border);
   z-index: 1000;
   animation: slideInUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 .toast-notification svg {
-  color: #4ade80;
+  color: var(--success);
 }
 
 @keyframes slideInUp {

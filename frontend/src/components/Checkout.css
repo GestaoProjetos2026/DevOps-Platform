@@ -10,7 +10,7 @@
 
 .back-link {
   background: transparent;
-  color: var(--accent-purple);
+  color: var(--brand-500);
   font-weight: 600;
   margin-bottom: 16px;
   padding: 0;
@@ -29,8 +29,8 @@
 }
 
 .cart-summary {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
   border-radius: 24px;
   padding: 32px;
 }
@@ -52,7 +52,7 @@
   align-items: center;
   gap: 16px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .cart-item-img {
@@ -111,19 +111,20 @@
 .summary-row.total {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-default);
   color: white;
   font-size: 18px;
   font-weight: 800;
 }
 
 .checkout-form-container {
-  background: white;
-  color: black;
+  background: var(--bg-surface);
+  color: var(--text-primary);
   border-radius: 24px;
   padding: 32px;
   position: sticky;
   top: 100px;
+  border: 1px solid var(--border-default);
 }
 
 .checkout-form-container h3 {
@@ -147,14 +148,15 @@
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #64748b;
+  color: var(--text-muted);
 }
 
 .form-group input {
   padding: 12px 16px;
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface-2);
+  color: var(--text-primary);
   font-weight: 600;
   width: 100%;
   display: block;
@@ -167,7 +169,7 @@
 }
 
 .checkout-submit {
-  background: var(--accent-purple);
+  background: var(--brand-500);
   color: white;
   padding: 16px;
   border-radius: 12px;
@@ -183,13 +185,13 @@
 }
 
 .checkout-submit.processing {
-  background: #6366f1;
+  background: var(--brand-600);
 }
 
 .secure-text {
   text-align: center;
   font-size: 12px;
-  color: #64748b;
+  color: var(--text-muted);
   margin-top: 20px;
 }
 
@@ -202,7 +204,7 @@
 .success-icon {
   width: 80px;
   height: 80px;
-  background: #22c55e;
+  background: var(--success);
   color: white;
   font-size: 40px;
   display: flex;
@@ -227,7 +229,7 @@
 
 .back-btn,
 .browse-btn {
-  background: var(--accent-purple);
+  background: var(--brand-500);
   color: white;
   padding: 14px 28px;
   border-radius: 12px;

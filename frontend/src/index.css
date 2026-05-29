@@ -1,15 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-color: #06070a;
-  --card-bg: #11141d;
-  --primary-gradient: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
-  --text-main: #ffffff;
-  --text-muted: #94a3b8;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --accent-purple: #7c3aed;
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --font-family-base: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --brand-500: #0466c8;
+  --brand-600: #0353a4;
+  --brand-700: #023e7d;
+  --brand-900: #001845;
+  --brand-950: #001233;
+
+  --bg-app: #001233;
+  --bg-sidebar: #001845;
+  --bg-surface: #0b1328;
+  --bg-surface-2: #101a33;
+  --bg-surface-strong: #002855;
+
+  --border-subtle: rgba(151, 157, 172, 0.10);
+  --border-default: rgba(151, 157, 172, 0.15);
+  --border-strong: rgba(151, 157, 172, 0.25);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #979dac;
+  --text-disabled: #5c677d;
+
+  --success: #6ee7b7;
+  --success-bg: rgba(110, 231, 183, 0.15);
+  --success-border: rgba(110, 231, 183, 0.3);
+
+  --warning: #fcd34d;
+  --warning-bg: rgba(252, 211, 77, 0.15);
+  --warning-border: rgba(252, 211, 77, 0.3);
+
+  --danger: #fca5a5;
+  --danger-bg: rgba(252, 165, 165, 0.15);
+  --danger-border: rgba(252, 165, 165, 0.3);
+
+  --info: #7dd3fc;
+  --info-bg: rgba(125, 211, 252, 0.15);
+  --info-border: rgba(125, 211, 252, 0.3);
+
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -20,9 +56,9 @@
 
 body {
   margin: 0;
-  font-family: 'Outfit', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
+  font-family: var(--font-family-base);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;

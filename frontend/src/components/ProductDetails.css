@@ -19,7 +19,7 @@
 }
 
 .back-button:hover {
-  color: var(--accent-purple);
+  color: var(--brand-500);
 }
 
 .details-hero {
@@ -31,14 +31,14 @@
 
 .product-badge {
   display: inline-block;
-  background: rgba(124, 58, 237, 0.1);
-  color: var(--accent-purple);
+  background: rgba(4, 102, 200, 0.1);
+  color: var(--brand-500);
   padding: 6px 14px;
   border-radius: 30px;
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 20px;
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(4, 102, 200, 0.2);
 }
 
 .details-title {
@@ -56,7 +56,7 @@
 }
 
 .detail-tag {
-  color: var(--accent-purple);
+  color: var(--brand-500);
   font-weight: 700;
   margin-right: 15px;
   font-size: 14px;
@@ -84,7 +84,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-default);
 }
 
 .feature-text h5 {
@@ -101,10 +101,10 @@
   display: flex;
   align-items: center;
   gap: 40px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-surface-2);
   padding: 32px;
   border-radius: 24px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-default);
   margin-top: 40px;
 }
 
@@ -135,8 +135,8 @@
 
 .main-buy-button {
   flex: 1;
-  background: white;
-  color: black;
+  background: var(--brand-500);
+  color: white;
   padding: 18px;
   border-radius: 16px;
   font-weight: 800;
@@ -149,9 +149,9 @@
 }
 
 .main-buy-button:hover {
-  background: var(--accent-purple);
+  background: var(--brand-600);
   color: white;
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 10px 30px rgba(4, 102, 200, 0.3);
   transform: translateY(-4px);
 }
 
@@ -162,7 +162,7 @@
 .visual-wrapper {
   border-radius: 32px;
   overflow: hidden;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-default);
   box-shadow: var(--shadow-lg);
   position: relative;
 }
